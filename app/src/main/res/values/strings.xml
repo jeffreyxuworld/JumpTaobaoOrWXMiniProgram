@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">JumpTaobaoOrWXMiniProgram</string>
+    <string name="weChat_key"></string>
+    <string name="weChat_secret"></string>
+    <!-- 测试版 -->
+    <string name="weChat_dev_key"></string>
+    <string name="weChat_dev_secret"></string>
+</resources>
