@@ -12,6 +12,7 @@ Android 原生跳转淘宝 APP 不同页面、微信小程序~
 item.taobao.com/item.htm?id=（商品id）
 
 例 ：item.taobao.com/item.htm?id=522968001275
+
 2、跳转店铺主页：
 shop.m.taobao.com/shop/shop_index.htm?shop_id=（店铺id）
 
