@@ -1,4 +1,7 @@
 # JumpTaobaoOrWXMiniProgram
+======
+[![Platform Android](https://img.shields.io/badge/platform-Android-brightgreen)](https://developer.android.com/)
+
 Android 原生跳转淘宝 APP 不同页面、微信小程序~
 
 很多 APP，会有这样的需要，自己有个商城页面，但是跳转的是淘宝上的商品。这时候就会有相关跳到淘宝 APP 的不同页面需求。
