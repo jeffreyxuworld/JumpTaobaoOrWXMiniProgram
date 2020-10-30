@@ -1,5 +1,4 @@
 # JumpTaobaoOrWXMiniProgram
-======
 [![Platform Android](https://img.shields.io/badge/platform-Android-brightgreen)](https://developer.android.com/)
 
 Android 原生跳转淘宝 APP 不同页面、微信小程序~
