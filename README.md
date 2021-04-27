@@ -25,13 +25,6 @@ market.m.taobao.com/apps/aliyx/coupon/detail.html?sellerId=（商品id）&activi
 
 例：market.m.taobao.com/apps/aliyx/coupon/detail.html?sellerId=2200723171488&activityId=8a1a9c28cc9b40e58aa8a9d8b5562dab
 
-《推理大师》
-应用宝链接：
-https://sj.qq.com/myapp/detail.htm?apkName=com.youkagames.murdermystery
-
-《桌游圈》
-应用宝链接：
-https://sj.qq.com/myapp/detail.htm?apkName=com.youkagames.gameplatform
 
 有时我们也会有需求需要跳转到微信小程序，在 Github 上的 Demo 也有实现。
 
