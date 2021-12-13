@@ -1,16 +1,15 @@
-package com.worldtech.jumpthird.utils;
+package com.worldtech.jumpthird.utils
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.widget.Toast;
+import android.content.pm.PackageManager.NameNotFoundException
+import android.app.Activity
+import android.content.Intent
+import android.content.Context
+import android.content.pm.PackageInfo
+import android.net.Uri
+import android.widget.Toast
+import java.lang.Exception
 
-public class CommonUtil {
-
+object CommonUtil {
     /**
      * 检查手机上是否安装了指定的软件
      *
@@ -18,15 +17,15 @@ public class CommonUtil {
      * @param pkgName 应用包名
      * @return true:已安装；false：未安装
      */
-    public static boolean isPkgInstalled(Context context, String pkgName) {
-        PackageInfo packageInfo;
+    fun isPkgInstalled(context: Context, pkgName: String?): Boolean {
+        var packageInfo: PackageInfo?
         try {
-            packageInfo = context.getPackageManager().getPackageInfo(pkgName, 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            packageInfo = null;
-            e.printStackTrace();
+            packageInfo = context.packageManager.getPackageInfo(pkgName!!, 0)
+        } catch (e: NameNotFoundException) {
+            packageInfo = null
+            e.printStackTrace()
         }
-        return packageInfo != null;
+        return packageInfo != null
     }
 
     /**
@@ -35,19 +34,21 @@ public class CommonUtil {
      * @param activity Activity
      * @param url      商品详情
      */
-    public static void gotoGoodsDetail(Activity activity, String url) {
+    fun gotoGoodsDetail(activity: Activity, url: String?) {
         try {
             //测试商品url
-            Intent intent = new Intent();
-            intent.setAction("Android.intent.action.VIEW");
-            Uri uri = Uri.parse(url); // 商品地址
-            intent.setData(uri);
-            intent.setClassName("com.taobao.taobao", "com.taobao.tao.detail.activity.DetailActivity");
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            activity.startActivity(intent);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            val intent = Intent()
+            intent.action = "Android.intent.action.VIEW"
+            val uri = Uri.parse(url) // 商品地址
+            intent.data = uri
+            intent.setClassName(
+                "com.taobao.taobao",
+                "com.taobao.tao.detail.activity.DetailActivity"
+            )
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            activity.startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
@@ -56,18 +57,17 @@ public class CommonUtil {
      * @param activity
      * @param url
      */
-    public static void gotoCoupon(Activity activity, String url) {
+    fun gotoCoupon(activity: Activity, url: String?) {
         try {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.View");
-            intent.setClassName("com.taobao.taobao", "com.taobao.browser.BrowserActivity");
-            Uri uri = Uri.parse(url);//clickUrl,领券地址
-            intent.setData(uri);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            activity.startActivity(intent);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            val intent = Intent()
+            intent.action = "android.intent.action.View"
+            intent.setClassName("com.taobao.taobao", "com.taobao.browser.BrowserActivity")
+            val uri = Uri.parse(url) //clickUrl,领券地址
+            intent.data = uri
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            activity.startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
@@ -76,14 +76,14 @@ public class CommonUtil {
      * @param activity
      * @param url
      */
-    public static void gotoShop(Activity activity, String url) {
+    fun gotoShop(activity: Activity, url: String?) {
         try {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.VIEW");
-            intent.setData(Uri.parse(url));
-            activity.startActivity(intent);
-        } catch (Exception e) {
-            e.printStackTrace();
+            val intent = Intent()
+            intent.action = "android.intent.action.VIEW"
+            intent.data = Uri.parse(url)
+            activity.startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
@@ -92,17 +92,15 @@ public class CommonUtil {
      * @param context
      * @param url 要浏览的资源地址
      */
-    public static  void openBrowser(Context context,String url){
-        final Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        if (intent.resolveActivity(context.getPackageManager()) != null) {
-            final ComponentName componentName = intent.resolveActivity(context.getPackageManager());
-            context.startActivity(Intent.createChooser(intent, "请选择浏览器"));
+    fun openBrowser(context: Context, url: String?) {
+        val intent = Intent()
+        intent.action = Intent.ACTION_VIEW
+        intent.data = Uri.parse(url)
+        if (intent.resolveActivity(context.packageManager) != null) {
+            val componentName = intent.resolveActivity(context.packageManager)
+            context.startActivity(Intent.createChooser(intent, "请选择浏览器"))
         } else {
-            Toast.makeText(context.getApplicationContext(), "请下载浏览器", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context.applicationContext, "请下载浏览器", Toast.LENGTH_SHORT).show()
         }
     }
-
-
 }
